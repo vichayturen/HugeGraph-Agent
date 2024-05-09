@@ -23,7 +23,7 @@ class BaseAgent(ABC):
         return model_response
 
     @abstractmethod
-    def act(self, inp: str) -> AgentStepOutput:
+    def act(self, inp: str, history: List[Dict[str, str]] = None) -> AgentStepOutput:
         pass
 
 
@@ -41,5 +41,5 @@ class ToolsAgent(BaseAgent, ABC):
         self.user_confirmation = user_confirmation
 
     @abstractmethod
-    def act(self, prompt: str) -> None:
+    def act(self, inp: str, history: List[Dict[str, str]] = None) -> None:
         pass
